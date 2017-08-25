@@ -5,11 +5,13 @@ var todoList = {
     // console.log('My todos : ', this.todos);
     if (this.todos.length == 0) {
       console.log('Todo List is empty :(')
-    } else {
+    }
+    else {
       for (var i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed == true) {
           console.log('(x)', this.todos[i].todoText);
-        } else {
+        }
+        else {
           console.log('( )', this.todos[i].todoText);
         }
       }
@@ -39,7 +41,7 @@ var todoList = {
   todoCompleted: function(position) {
     var temp = this.todos[position];
     temp.completed = !temp.completed;
-    this.displayTodos();
+    //this.displayTodos();
   },
   toggleAll: function() {
     // completedTodos == noOftodos
@@ -50,26 +52,28 @@ var todoList = {
         completedTodos++;
       }
     }
+    
     if (totalTodos == completedTodos) {
       for (var i = 0; i < totalTodos; i++) {
         this.todos[i].completed = false;
       }
-    } else {
+    }else {
       for (var i = 0; i < totalTodos; i++) {
         this.todos[i].completed = true;
       }
     }
-
     this.displayTodos();
   }
 };
 
 var displayTodosButton = document.getElementById('displayTodosButton');
+var toggleAllButton = document.getElementById('toggleAllButton');
+
 displayTodosButton.addEventListener('click',function() {
   todoList.displayTodos();
 });
 
-var toggleAllButton = document.getElementById('toggleAllButton');
-displayTodosButton.addEventListener('click',function() {
+
+toggleAllButton.addEventListener('click',function() {
   todoList.toggleAll();
 });
