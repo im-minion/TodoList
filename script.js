@@ -50,16 +50,26 @@ var todoList = {
         completedTodos++;
       }
     }
-      if (totalTodos == completedTodos) {
-        for (var i = 0; i < totalTodos; i++) {
-          this.todos[i].completed = false;
-        }
-      } else {
-        for (var i = 0; i < totalTodos; i++) {
-          this.todos[i].completed = true;
-        }
+    if (totalTodos == completedTodos) {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false;
       }
-    
+    } else {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = true;
+      }
+    }
+
     this.displayTodos();
   }
 };
+
+var displayTodosButton = document.getElementById('displayTodosButton');
+displayTodosButton.addEventListener('click',function() {
+  todoList.displayTodos();
+});
+
+var toggleAllButton = document.getElementById('toggleAllButton');
+displayTodosButton.addEventListener('click',function() {
+  todoList.toggleAll();
+});
