@@ -69,9 +69,6 @@ var handlers = {
 	displayTodos : function(){
 		todoList.displayTodos();
 	},
-	toggleAll : function(){
-		todoList.toggleAll();
-	},
 	addTodos : function(){
 		var addTodoTextInput=document.getElementById('addTodoTextInput');
 		todoList.addTodos(addTodoTextInput.value);
@@ -88,6 +85,14 @@ var handlers = {
 		var deleTodoPositionInput = document.getElementById('deleTodoPositionInput');
 		todoList.deleTodos(deleTodoPositionInput.valueAsNumber);
 		deleTodoPositionInput.value = '';
+	},
+	todoCompleted : function(){
+		var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+		todoList.todoCompleted(toggleCompletedPositionInput.valueAsNumber);
+		toggleCompletedPositionInput.value = '';
+	},
+	toggleAll : function(){
+		todoList.toggleAll();
 	}
 	
 };
