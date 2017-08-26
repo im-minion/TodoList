@@ -4,7 +4,7 @@ var todoList = {
   displayTodos: function() {
     // console.log('My todos : ', this.todos);
     if (this.todos.length == 0) {
-      console.log('Todo List is empty :(')
+      console.log('Todo List is empty :(');
     }
     else {
       for (var i = 0; i < this.todos.length; i++) {
@@ -25,17 +25,17 @@ var todoList = {
     this.displayTodos();
   },
   changeTodos: function(position, newItemValue) {
-    console.log("before : ")
+    console.log("before : ");
     this.displayTodos();
     this.todos[position].todoText = newItemValue;
-    console.log("after : ")
+    console.log("after : ");
     this.displayTodos();
   },
   deleTodos: function(position) {
-    console.log("before : ")
+    console.log("before : ");
     this.displayTodos();
-    this.todos.splice(position, 1)
-    console.log("after : ")
+    this.todos.splice(position, 1);
+    console.log("after : ");
     this.displayTodos();
   },
   todoCompleted: function(position) {
@@ -75,7 +75,21 @@ var handlers = {
 	addTodos : function(){
 		var addTodoTextInput=document.getElementById('addTodoTextInput');
 		todoList.addTodos(addTodoTextInput.value);
+		addTodoTextInput.value = '';
+	},
+	changeTodos : function(){
+		var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+		var chnageTodoTextInput = document.getElementById('changeTodoTextInput');
+		todoList.changeTodos(changeTodoPositionInput.valueAsNumber, chnageTodoTextInput.value)
+		changeTodoPositionInput.value = '';
+		changeTodoTextInput.value = '';
+	},
+	deleTodos : function(){
+		var deleTodoPositionInput = document.getElementById('deleTodoPositionInput');
+		todoList.deleTodos(deleTodoPositionInput.valueAsNumber);
+		deleTodoPositionInput.value = '';
 	}
+	
 };
 /*var displayTodosButton = document.getElementById('displayTodosButton');
 var toggleAllButton = document.getElementById('toggleAllButton');
