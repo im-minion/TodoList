@@ -65,8 +65,19 @@ var todoList = {
     this.displayTodos();
   }
 };
-
-var displayTodosButton = document.getElementById('displayTodosButton');
+var handlers = {
+	displayTodos : function(){
+		todoList.displayTodos();
+	},
+	toggleAll : function(){
+		todoList.toggleAll();
+	},
+	addTodos : function(){
+		var addTodoTextInput=document.getElementById('addTodoTextInput');
+		todoList.addTodos(addTodoTextInput.value);
+	}
+};
+/*var displayTodosButton = document.getElementById('displayTodosButton');
 var toggleAllButton = document.getElementById('toggleAllButton');
 
 displayTodosButton.addEventListener('click',function() {
@@ -76,4 +87,4 @@ displayTodosButton.addEventListener('click',function() {
 
 toggleAllButton.addEventListener('click',function() {
   todoList.toggleAll();
-});
+});*/
