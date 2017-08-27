@@ -1,21 +1,28 @@
 // Code goes here
 var todoList = {
   todos: [],
-  displayTodos: function() {
+  displayTodos: function() {  
     // console.log('My todos : ', this.todos);
     if (this.todos.length == 0) {
       console.log('Todo List is empty :(');
+      //var todoLi = document.createElement('li');
+      //todoLi.append('Todo List is empty :(');      
     }
     else {
       for (var i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed == true) {
           console.log('(x)', this.todos[i].todoText);
+          //var todoLi = document.createElement('li');
+          //todoLi.append('(x)', this.todos[i].todoText);
         }
         else {
           console.log('( )', this.todos[i].todoText);
+          //var todoLi = document.createElement('li');
+          //todoLi.append('(x)', this.todos[i].todoText);
         }
       }
     }
+    //todoUl.append(todoLi);
   },
   addTodos: function(todoText) {
     this.todos.push({
@@ -96,6 +103,29 @@ var handlers = {
 	}
 	
 };
+
+var view = {
+	displayTodos : function(){
+		var todoUl = document.querySelector('ul');
+		todoUl.innerHTML = '';
+		for(var i = 0 ; i < todoList.todos.length ; i++){
+			var todoLi = document.createElement('li');
+			
+			var todo = todoList.todos[i];
+			var todoTextWthCompletion = '';
+			
+			if(todo.completed == true ){
+				todoTextWthCompletion = '(x) ' + todo.todoText;
+			}
+			else{ 
+				todoTextWthCompletion = '( ) ' + todo.todoText;
+			}	
+			
+			todoLi.textContent = todoTextWthCompletion;
+			todoUl.append(todoLi);
+		}
+	}	
+}
 /*var displayTodosButton = document.getElementById('displayTodosButton');
 var toggleAllButton = document.getElementById('toggleAllButton');
 
