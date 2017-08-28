@@ -69,29 +69,10 @@ var handlers = {
 var view = {
 	displayTodos : function(){
 		var todoUl = document.querySelector('ul');
-		todoUl.innerHTML = '';
-		/*for(var i = 0 ; i < todoList.todos.length ; i++){
-			var todoLi = document.createElement('li');		
-			var todo = todoList.todos[i];
-			var todoTextWthCompletion = '';
-			
-			if(todo.completed == true ){
-				todoTextWthCompletion = '(x) ' + todo.todoText;
-			}
-			else{ 
-				todoTextWthCompletion = '( ) ' + todo.todoText;
-			}
-			todoLi.id = i; 
-			todoLi.textContent = todoTextWthCompletion;
-			todoLi.appendChild(this.createDeleteButton());
-			todoUl.appendChild(todoLi);
-		}*/
-		
+		todoUl.innerHTML = '';		
 		todoList.todos.forEach(function(todo,position){
 			
-			var todoLi = document.createElement('li');		
-		//	var todoTextWthCompletion = '';
-			
+			var todoLi = document.createElement('li');			
 			if(todo.completed == true ){
 				todoTextWthCompletion = '(x) ' + todo.todoText;
 			}
@@ -103,7 +84,7 @@ var view = {
 			todoLi.textContent = todoTextWthCompletion;
 			todoLi.appendChild(this.createDeleteButton());
 			todoUl.appendChild(todoLi);
-		},this);
+		}, this);
 	},
 	createDeleteButton : function(){
 		var deleteButton = document.createElement('button');
