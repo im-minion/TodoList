@@ -19,11 +19,12 @@ var todoList = {
   	toggleAll: function() {
  	var totalTodos = this.todos.length;
     var completedTodos = 0;
-    for (var i = 0; i < totalTodos; i++) {
-      if (this.todos[i].completed == true) {
+        
+    this.todos.forEach(function(todo){
+    	if (todo.completed == true) {
         completedTodos++;
       }
-    }
+    });
     
     if (totalTodos == completedTodos) {
       for (var i = 0; i < totalTodos; i++) {
